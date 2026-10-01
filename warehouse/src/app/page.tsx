@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PageHeader } from "@/components/PageHeader";
 import { ORDER_STATUSES, labelOf } from "@/lib/constants";
 import { getDashboard } from "@/lib/db";
 import { formatQty, greeting } from "@/lib/format";
@@ -7,24 +8,24 @@ export default function HomePage() {
   const data = getDashboard();
   return (
     <>
-      <div className="page-head">
-        <div>
-          <p className="eyebrow">库房概况</p>
-          <h1>{greeting()}</h1>
-          <p className="lede">库存、出入库、客户和订单都在这本台账里。订单只是登记，备货出库还是要到出入库里记一笔。</p>
-        </div>
-      </div>
-      <div className="quick">
-        <Link className="btn primary" href="/inventory">
-          看库存
-        </Link>
-        <Link className="btn ghost" href="/movements">
-          登记出入库
-        </Link>
-        <Link className="btn ghost" href="/orders/new">
-          记一笔订单
-        </Link>
-      </div>
+      <PageHeader
+        eyebrow="库房概况"
+        title={greeting()}
+        lede="库存、出入库、客户和订单都在这本台账里。订单只是登记，备货出库还是要到出入库里记一笔。"
+        action={
+          <div className="quick">
+            <Link className="btn primary" href="/inventory">
+              看库存
+            </Link>
+            <Link className="btn ghost" href="/movements">
+              登记出入库
+            </Link>
+            <Link className="btn ghost" href="/orders/new">
+              记一笔订单
+            </Link>
+          </div>
+        }
+      />
       <section className="stats">
         <div className="stat">
           <b>{data.itemCount}</b>

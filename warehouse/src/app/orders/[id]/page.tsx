@@ -54,7 +54,7 @@ export default async function OrderDetailPage({
           <strong>{formatWhen(order.updated_at)}</strong>
         </div>
       </section>
-      <section className="card" style={{ marginBottom: 14 }}>
+      <section className="card">
         <h2>状态</h2>
         <form action={updateOrderStatusAction} className="status-form">
           <input type="hidden" name="id" value={order.id} />
@@ -68,7 +68,7 @@ export default async function OrderDetailPage({
           <SubmitButton pendingLabel="更新中…">更新状态</SubmitButton>
           <span className={`tag ${order.status}`}>{labelOf(ORDER_STATUSES, order.status)}</span>
         </form>
-        <p className="hint">改状态不会扣库存。货出库时，请到出入库单独登记。</p>
+        <p className="hint notice">改状态不会扣库存。货出库时，请到出入库单独登记。</p>
         <p>
           {order.contact || "未填联系人"}
           {order.phone ? ` · ${order.phone}` : ""}
@@ -76,7 +76,7 @@ export default async function OrderDetailPage({
         </p>
         <p>{order.note ? `备注：${order.note}` : "没有备注。"}</p>
       </section>
-      <section className="card">
+      <section className="card gap-top">
         <h2>明细</h2>
         <div className="table-wrap">
           <table>

@@ -57,7 +57,7 @@ export function OrderForm({
         </label>
       </div>
 
-      <h2 style={{ marginTop: 18 }}>明细</h2>
+      <h2 className="lines-title">明细</h2>
       {rows.map((row, index) => (
         <div className="line-row" key={row}>
           <select

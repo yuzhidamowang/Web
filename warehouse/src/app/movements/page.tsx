@@ -21,7 +21,7 @@ export default async function MovementsPage({
       <PageHeader eyebrow="出入库" title="收货与发货" lede="入库、出库都会改当前库存，并留下流水。出库数量不能超过现存量，库存不会变成负数。" />
       <Flash ok={params.ok} error={params.error} />
       <MovementForm items={items} defaultItemId={Number.isInteger(requested) ? requested : undefined} />
-      <section className="card" style={{ marginTop: 14 }}>
+      <section className="card gap-top">
         <h2>最近流水</h2>
         {movements.length === 0 ? (
           <p className="empty">还没有出入库记录。</p>

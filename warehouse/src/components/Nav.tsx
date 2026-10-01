@@ -16,7 +16,7 @@ export function Nav({ lowCount }: { lowCount: number }) {
   return (
     <aside className="sidebar">
       <div className="brand">
-        <span className="mark">仓</span>
+        <span className="mark" aria-hidden="true">仓</span>
         <span>
           <strong>食材库房</strong>
           <small>内部台账</small>
